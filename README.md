@@ -9,7 +9,7 @@ To build manually,
 cd Debug/
 make clean all
 cd ..
-./Debug/C++OpenCL
+./Debug/opencl-renderer
 ```
 
 It should be run from the project root.
