@@ -39,58 +39,55 @@ x_window :: ~x_window() {
 void x_window :: get_user_input() {
 	// get the next event and stuff it into our event variable.
 	// Note:  only events we set the mask for are detected!
-	XNextEvent(dis, &event);
-	switch(event.type)
+	while (XPending(dis) > 0)
 	{
+		XNextEvent(dis, &event);
+		switch (event.type) {
 
-	case ConfigureNotify:
-	{
-		XConfigureEvent xce = event.xconfigure;
-		x_size = xce.width;
-		y_size = xce.height;
-	}
-	break;
-	case KeyPress:
-	{
-		KeySym k = XLookupKeysym(&event.xkey, 0);
-		if(std::find(keys_pressed.begin(), keys_pressed.end(), k) == keys_pressed.end())
-		{
-			keys_pressed.push_back(k);
+		case ConfigureNotify: {
+			XConfigureEvent xce = event.xconfigure;
+			x_size = xce.width;
+			y_size = xce.height;
 		}
-	}
-	break;
-	case KeyRelease:
+			break;
+		case KeyPress:
+		{
+			KeySym k = XLookupKeysym(&event.xkey, 0);
+			if (std::find(keys_pressed.begin(), keys_pressed.end(), k)
+					== keys_pressed.end()) {
+				keys_pressed.push_back(k);
+			}
+		}
+			break;
+		case KeyRelease:
 		{
 			KeySym k = XLookupKeysym(&event.xkey, 0);
 			keys_pressed.erase(std::remove(keys_pressed.begin(), keys_pressed.end(), k), keys_pressed.end());
 		}
 		break;
-	case ButtonPress:
-	{
-		//mouse is down
-		mouse_down = true;
-	}
-	break;
-	case ButtonRelease:
-	{
-		//mouse is up
-		mouse_down = false;
-	}
-	break;
-	case MotionNotify:
-	{
-		//set mouses
-		mouse_previous_x = mouse_x;
-		mouse_previous_y = mouse_y;
-		mouse_x = event.xmotion.x;
-		mouse_y = event.xmotion.y;
-	}
-	break;
-	default:
-	{
+		case ButtonPress: {
+			//mouse is down
+			mouse_down = true;
+		}
+			break;
+		case ButtonRelease: {
+			//mouse is up
+			mouse_down = false;
+		}
+			break;
+		case MotionNotify: {
+			//set mouses
+			mouse_previous_x = mouse_x;
+			mouse_previous_y = mouse_y;
+			mouse_x = event.xmotion.x;
+			mouse_y = event.xmotion.y;
+		}
+			break;
+		default: {
 
-	}
+		}
 
+		}
 	}
 }
 

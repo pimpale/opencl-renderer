@@ -6,10 +6,10 @@ The source is provided as an Eclipse C/C++ Project, and can simply be imported i
 To build manually, 
 
 ```bash
-cd Debug/
-make clean all
-cd ..
-./Debug/opencl-renderer
+$ cd Debug/
+$ make clean all
+$ cd ..
+$ ./Debug/opencl-renderer
 ```
 
 It should be run from the project root.

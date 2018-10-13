@@ -76,7 +76,7 @@ void get_user_input(x_window* win, camera* cam)
 
 		vec3 horizontal_axis = {1.0f, 0.0f, 0.0f};
 		vec3 vertical_axis = {0.0f, 1.0f, 0.0f};
-
+		vec3 frontback_axis = { 0.0f, 0.0f, 1.0f };
 
 		if(win->is_key_pressed(XK_Left))
 		{
@@ -102,6 +102,18 @@ void get_user_input(x_window* win, camera* cam)
 			quat_rotate(q,-ro,horizontal_axis);
 			cam->rotate(q);
 		}
+		if (win->is_key_pressed(XK_Page_Down)) {
+			quat q;
+			quat_rotate(q, ro, frontback_axis);
+			cam->rotate(q);
+		}
+		if (win->is_key_pressed(XK_Page_Up)) {
+			quat q;
+			quat_rotate(q, -ro, frontback_axis);
+			cam->rotate(q);
+		}
+
+
 	}
 }
 
