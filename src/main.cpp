@@ -7,13 +7,13 @@
 #include "linmath.h"
 #include "x_window.hpp"
 
-#define SCALE 1
+#define SCALE 5
 
 #define DEFAULT_FRAME_XSIZE 500
-#define DEFAULT_FRAME_YSIZE 500 //Even so, still 10,000 rays to consider
+#define DEFAULT_FRAME_YSIZE 500
 
-#define FRAME_REQUEST_TIME 0.01 //Half a second to reduce the lag
-#define SCREEN_REFRESH_TIME 0.01 //Ok if higher, this is on our cpu
+#define FRAME_REQUEST_TIME 0.05 //Half a second to reduce the lag
+#define SCREEN_REFRESH_TIME 0.05 //Ok if higher, this is on our cpu
 
 
 static bool running = true;
@@ -32,7 +32,7 @@ void output_to_window(x_window* win, camera* cam)
 		{
 			for(uint32_t x = 0; x < width; x++)
 			{
-				win->set_color(col_array[width*y + x]);
+				win->set_color(col_array[width * y + x]);
 				win->fill_rect(x*SCALE,y*SCALE,SCALE,SCALE);
 			}
 		}
@@ -61,7 +61,7 @@ void get_user_input(x_window* win, camera* cam)
 			cam->set_size(camera_x_size, camera_y_size);
 		}
 
-		float mo = 0.05;
+		float mo = 0.1;
 		float ro = 0.05;
 
 		if(win->is_key_pressed(XK_a))
@@ -128,7 +128,7 @@ void get_frames(camera* cam)
 
 int main()
 {
-	//println(std::string("began excution sucessfully at: ") + executable_path());
+	//println(std::string("began execution successfully at: ") + executable_path());
 
 	println("starting initialization procedures");
 	camera cam(0,0,-10,DEFAULT_FRAME_XSIZE/SCALE,DEFAULT_FRAME_YSIZE/SCALE);
