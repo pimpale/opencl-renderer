@@ -106,7 +106,8 @@ void kernel raycast(
 		dist++;
 		if(loc.x > -5 && loc.x < 5 && loc.y > -5 && loc.y < 5 && loc.z > -5 && loc.z < 5)
 		{
-			color[id] = (0x0000FF - dist) + ((10*jumps)<<8);
+			//color[id] = (0x0000FF - dist) + ((10*jumps)<<8);
+			color[id] = 0x0000FF - dist;
 			break;
 		}
 

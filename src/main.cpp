@@ -7,7 +7,7 @@
 #include "linmath.h"
 #include "x_window.hpp"
 
-#define SCALE 5
+#define SCALE 2
 
 #define DEFAULT_FRAME_XSIZE 500
 #define DEFAULT_FRAME_YSIZE 500
