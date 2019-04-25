@@ -61,7 +61,7 @@ void get_user_input(x_window* win, camera* cam)
 			cam->set_size(camera_x_size, camera_y_size);
 		}
 
-		float mo = 0.1;
+		float mo = 0.3;
 		float ro = 0.05;
 
 		if(win->is_key_pressed(XK_a))

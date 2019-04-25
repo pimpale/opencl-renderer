@@ -100,6 +100,7 @@ void kernel raycast(
 	int dist = 0;
 	
 	int jumps = 0;
+  color[id] = 1;
 	for(int i = 0; i < 255; i++)
 	{
 		loc += vec;
@@ -107,8 +108,13 @@ void kernel raycast(
 		if(loc.x > -5 && loc.x < 5 && loc.y > -5 && loc.y < 5 && loc.z > -5 && loc.z < 5)
 		{
 			//color[id] = (0x0000FF - dist) + ((10*jumps)<<8);
-			color[id] = 0x0000FF - dist;
-			break;
+			//color[id] = 0x0000FF - dist;
+      color[id] += 2;
+      if(color[id] >= 255) {
+        color[id] = 255;
+        break;
+      }
+			//break;
 		}
 
 		if(loc.z > 10)
