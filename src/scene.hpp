@@ -12,10 +12,7 @@
 
 class scene {
 public:
-	scene(std::string filename);
-
+  scene(std::string filename);
 };
-
-
 
 #endif /* SCENE_HPP_ */

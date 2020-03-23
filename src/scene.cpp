@@ -1,6 +1,3 @@
 #include "scene.hpp"
 
-scene::scene(std::string filename)
-{
-
-}
+scene::scene(std::string filename) {}

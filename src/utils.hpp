@@ -8,7 +8,7 @@
 #define STRINGIFY(x) "x"
 
 #define EPSILON 0.0001f
-#define FOV M_PI/2.0f
+#define FOV M_PI / 2.0f
 
 void print(std::string s);
 void println(std::string s);
