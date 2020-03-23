@@ -2,3 +2,5 @@
 *.d
 Debug/opencl-renderer
 build/
+compile_commands.json
+.clangd/
