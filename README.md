@@ -2,6 +2,11 @@
 
 This project is a volumetric raymarcher coded in C++ and OpenCL. Its goal is to demonstrate the use of raymarching using OpenCL, especially over noneuclidean topologies. This demo renders an infinite number of 3d cubes. It won an award at the Synopsys Championship science fair in Santa Clara.
 
+### Also see:
+
+![My cooler, newer version](https://github.com/pimpale/c-opencl-raymarcher)
+
+
 Demonstration gif: 
 
 ![Alt text](./assets/screenshots/mov.gif?raw=true "animated")
